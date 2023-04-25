@@ -7,10 +7,11 @@ echo "Sessions in PHP<br>";
 session_start();
 if(isset($_POST['submit'])) {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = $_POST('password');
-    if($email == 'lavalshy2002@gmail.com' && $password == '123456') {
+    $password = $_POST['password'];
+    if($email == 'lavalshy2002@gmail.com' && $password == '1111') {
+        $_SESSION['email'] = $email;
         // redirect to another page
-        header('Location: ./PHP_tutorial/dashboard.php');
+        header('Location: ./dashboard.php');
     } else {
         echo "Incorrect email or password";
     }
@@ -32,7 +33,7 @@ if(isset($_POST['submit'])) {
         <h3>Login to your account</h3>
         <div>
             <label for="name">Email:</label>
-            <input type="text" name="email">
+            <input type="email" name="email">
         </div>
         <div>
             <label for="password">Password:</label>

@@ -1,0 +1,1 @@
+EOL = End of line = Enter xuống dòng
