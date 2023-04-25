@@ -10,7 +10,7 @@ if(isset($_POST['submit'])) {
     $password = $_POST('password');
     if($email == 'lavalshy2002@gmail.com' && $password == '123456') {
         // redirect to another page
-        header('Location: ./dashboard.php');
+        header('Location: ./PHP_tutorial/dashboard.php');
     } else {
         echo "Incorrect email or password";
     }
