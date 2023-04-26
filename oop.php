@@ -45,9 +45,9 @@ $user2 = new User('Josh', 'john@gmail.com', 24, '1111');
 // print_r($user2);
 // echo $user1->get_name()."<br>";
 // echo $user2->get_name();
-echo $user1->email;
-echo '<br>';
-echo $user2->age;
+// echo $user1->email;
+// echo '<br>';
+// echo $user2->age;
 // inheritance : tính kế thừa 
 class Employee extends User
 {
