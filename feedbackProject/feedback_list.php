@@ -22,6 +22,7 @@ if ($connection != null) {
         }
         echo '</ul>';
     } catch (PDOException $e) {
+        echo "Cannot query data. Error: " . $e->getMessage();
     }
 }
 include 'components/footer.php';
