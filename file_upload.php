@@ -7,7 +7,8 @@ if (isset($_POST['submit'])) {
         // print_r($_FILES);
         $file_size = $_FILES['upload']['size'];
         $file_tmp_name = $_FILES['upload']['tmp_name'];
-        $destination_path = "uploads/$file_name";
+        $generated_file_name = time().'-'.$file_name;
+        $destination_path = "uploads/$generated_file_name";
         $file_extension = explode('.', $file_name);
         $file_extension = strtolower(end($file_extension));
         // echo "$file_name, $file_size, $file_extension, $destination_path";
@@ -15,6 +16,7 @@ if (isset($_POST['submit'])) {
         if (in_array($file_extension, $permitted_extensions)) {
             if ($file_size <= 100000000) {
                 // ok, move from temp folder to /uploads
+                // original file name and uploaded file name must be DIFFERENT, why?
                 move_uploaded_file($file_tmp_name, $destination_path);
                 $message = '<p style = "color: green;">Upload successfully</p>';
             } else {
@@ -49,7 +51,7 @@ if (isset($_POST['submit'])) {
         <input type="file" name="upload">
         <input type="submit" value="submit" name="submit">
     </form>
-    <?php $message ?? '' ?>
+    <?php echo $message ?? '' ?>
 </body>
 
 </html>
